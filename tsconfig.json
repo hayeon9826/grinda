@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "sourceMap": true,
     "outDir": "dist",
     "target": "es5",
@@ -15,7 +16,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "paths": {
+      "@lib/*": ["lib/*"],
+      "@schema": ["constants/schema"],
+      "@components": ["components"],
+      "@components/*": ["components/*"],
+      "@src": ["src"],
+      "@src/*": ["src/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

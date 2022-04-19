@@ -1,3 +1,12 @@
+import Link from "next/link";
+import axios from "axios";
+import { app } from "@lib/firebase";
+import toast from "react-simple-toasts";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
+import React, { useEffect, useRef, useState } from "react";
+
 const RegisterPage = () => {
   return (
     <>
@@ -13,11 +22,11 @@ const RegisterPage = () => {
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
             className="mx-auto h-12 w-auto"
-            src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-            alt="Workflow"
+            src="/semu_logo_bg.png"
+            alt="semu"
           />
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Sign in to your account
+            회원가입
           </h2>
         </div>
 
@@ -29,7 +38,7 @@ const RegisterPage = () => {
                   htmlFor="name"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Name
+                  이름
                 </label>
                 <div className="mt-1">
                   <input
@@ -47,7 +56,7 @@ const RegisterPage = () => {
                   htmlFor="email"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Email address
+                  이메일
                 </label>
                 <div className="mt-1">
                   <input
@@ -66,7 +75,7 @@ const RegisterPage = () => {
                   htmlFor="password"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Password
+                  비밀번호
                 </label>
                 <div className="mt-1">
                   <input
@@ -84,7 +93,7 @@ const RegisterPage = () => {
                   htmlFor="password"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Password Confirmation
+                  비밀번호 확인
                 </label>
                 <div className="mt-1">
                   <input
@@ -110,7 +119,7 @@ const RegisterPage = () => {
                     htmlFor="remember-me"
                     className="ml-2 block text-sm text-gray-900"
                   >
-                    Remember me
+                    로그인 정보 기억하기
                   </label>
                 </div>
 
@@ -119,7 +128,7 @@ const RegisterPage = () => {
                     href="#"
                     className="font-medium text-indigo-600 hover:text-indigo-500"
                   >
-                    Forgot your password?
+                    비밀번호를 잃어버리셨나요?
                   </a>
                 </div>
               </div>
@@ -129,8 +138,15 @@ const RegisterPage = () => {
                   type="submit"
                   className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
-                  Sign in
+                  회원가입
                 </button>
+              </div>
+              <div>
+                <Link href="/users/login">
+                  <button className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300">
+                    로그인
+                  </button>
+                </Link>
               </div>
             </form>
           </div>

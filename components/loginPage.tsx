@@ -21,7 +21,7 @@ const LoginPage = () => {
           <img
             className="mx-auto h-12 w-auto"
             src="/semu_logo_bg.png"
-            alt="Workflow"
+            alt="semu"
           />
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             로그인

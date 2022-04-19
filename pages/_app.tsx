@@ -25,7 +25,6 @@ function MyApp({ Component, pageProps }: AppProps) {
             name="apple-mobile-web-app-status-bar-style"
             content="black-translucent"
           />
-          <link rel="stylesheet" href="../dist/output.css" />
         </Head>
         <Component {...pageProps} />
       </Hydrate>
