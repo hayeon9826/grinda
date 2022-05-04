@@ -4,9 +4,27 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import React from "react";
+import { AuthProvider } from "@components/auth";
+import { useRouter } from "next/router";
+const ko = require("@lib/locale/ko.json");
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+
+i18n
+  .use(initReactI18next) // passes i18n down to react-i18next
+  .init({
+    resources: { ko },
+    lng: "ko",
+    fallbackLng: "ko",
+    interpolation: {
+      escapeValue: false,
+    },
+  });
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = React.useState(() => new QueryClient());
+  const router = useRouter();
+  const { deviceToken } = router.query;
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -26,7 +44,9 @@ function MyApp({ Component, pageProps }: AppProps) {
             content="black-translucent"
           />
         </Head>
-        <Component {...pageProps} />
+        <AuthProvider deviceToken={deviceToken}>
+          <Component {...pageProps} />
+        </AuthProvider>
       </Hydrate>
     </QueryClientProvider>
   );

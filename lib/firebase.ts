@@ -1,5 +1,5 @@
 import { initializeApp, getApp, FirebaseApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+// import { getAnalytics } from "firebase/analytics";
 
 export let app: FirebaseApp;
 export const firebaseConfig = {
@@ -20,4 +20,4 @@ try {
   app = initializeApp(firebaseConfig, "app");
 }
 
-export const analytics = getAnalytics(app);
+// export const analytics = getAnalytics(app);

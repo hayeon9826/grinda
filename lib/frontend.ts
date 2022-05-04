@@ -1,6 +1,7 @@
 import { User } from "@schema";
 import axios from "axios";
 import { useQuery } from "react-query";
+import _ from "lodash";
 
 export const getCurrentUser = () => {
   const {
@@ -13,4 +14,13 @@ export const getCurrentUser = () => {
   });
 
   return { currentUser, isFetching, refetch };
+};
+
+export const authErrorMessage = (code) => {
+  try {
+    return `authError.${_.camelCase(code?.split("/")[1])}`;
+  } catch (e) {
+    console.log(e);
+    return "알수 없는 에러가 발생했습니다.";
+  }
 };

@@ -23,6 +23,7 @@
       "@components": ["components"],
       "@components/*": ["components/*"],
       "@src": ["src"],
+      "@locales": ["lib/locales"],
       "@src/*": ["src/*"]
     }
   },

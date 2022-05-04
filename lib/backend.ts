@@ -10,7 +10,7 @@ export const getCurrentUser = async (req) => {
     const user = await prisma.user.findFirst({
       where: { firebaseId: uid },
     });
-    return { id: user.id, nickname: user.nickname };
+    return { id: user.id, name: user.name };
   } catch (e) {
     return null;
   }

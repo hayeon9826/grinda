@@ -8,6 +8,18 @@ import { useForm } from "react-hook-form";
 import React, { useEffect, useRef, useState } from "react";
 
 const RegisterPage = () => {
+  const router = useRouter();
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    watch,
+    formState: { errors, isSubmitting },
+  } = useForm<any>();
+
+  const password = useRef({});
+  password.current = watch("password", "");
+
   return (
     <>
       {/*
@@ -18,7 +30,7 @@ const RegisterPage = () => {
         <body class="h-full">
         ```
       */}
-      <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8 mt-12">
+      <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8 mt-12 mb-12">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
             className="mx-auto h-12 w-auto"
@@ -32,7 +44,31 @@ const RegisterPage = () => {
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-            <form className="space-y-6" action="#" method="POST">
+            <form
+              className="space-y-4"
+              onSubmit={handleSubmit(async (data) => {
+                try {
+                  const auth = getAuth(app);
+                  const credential = await createUserWithEmailAndPassword(
+                    auth,
+                    data.email,
+                    data.password
+                  );
+                  const { user } = credential;
+                  await axios.post("/api/users", {
+                    email: data.email,
+                    firebaseId: user.uid,
+                    name: data.name,
+                  });
+
+                  toast("가입을 완료하였습니다.");
+                  router.replace("/");
+                } catch (e) {
+                  console.log(e);
+                  toast("다시 시도해주세요.");
+                }
+              })}
+            >
               <div>
                 <label
                   htmlFor="name"
@@ -43,12 +79,14 @@ const RegisterPage = () => {
                 <div className="mt-1">
                   <input
                     id="name"
-                    name="name"
+                    {...register("name", { required: "필수 입력 사항입니다." })}
                     type="text"
                     autoComplete="name"
+                    placeholder="이름을 입력해주세요"
                     required
                     className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   />
+                  <p className="error mb-4">{errors.name?.message}</p>
                 </div>
               </div>
               <div>
@@ -61,12 +99,14 @@ const RegisterPage = () => {
                 <div className="mt-1">
                   <input
                     id="email"
-                    name="email"
+                    {...register("email", { required: "필수 입력 사항입니다" })}
                     type="email"
                     autoComplete="email"
+                    placeholder="이메일을 입력해주세요"
                     required
                     className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   />
+                  <p className="error mb-4">{errors.email?.message}</p>
                 </div>
               </div>
 
@@ -82,10 +122,17 @@ const RegisterPage = () => {
                     id="password"
                     name="password"
                     type="password"
-                    autoComplete="current-password"
+                    {...register("password", {
+                      required: "필수 입력 사항입니다.",
+                      minLength: {
+                        value: 8,
+                        message: "8자 이상 입력해주세요.",
+                      },
+                    })}
                     required
                     className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   />
+                  <p className="error mb-4">{errors.password?.message}</p>
                 </div>
               </div>
               <div>
@@ -97,17 +144,21 @@ const RegisterPage = () => {
                 </label>
                 <div className="mt-1">
                   <input
-                    id="password_confirmation"
-                    name="password_confirmation"
-                    type="password_confirmation"
-                    autoComplete="current-password"
+                    id="password_repeat"
+                    name="password_repeat"
+                    type="password"
+                    {...register("password_repeat", {
+                      validate: (value) =>
+                        value === password.current ||
+                        "비밀번호가 일치하지 않습니다.",
+                    })}
                     required
                     className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   />
                 </div>
               </div>
 
-              <div className="flex items-center justify-between">
+              {/* <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <input
                     id="remember-me"
@@ -115,6 +166,11 @@ const RegisterPage = () => {
                     type="checkbox"
                     className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
                   />
+                  {
+                    <p className="error mb-4">
+                      {errors.password_repeat?.message}
+                    </p>
+                  }
                   <label
                     htmlFor="remember-me"
                     className="ml-2 block text-sm text-gray-900"
@@ -131,7 +187,7 @@ const RegisterPage = () => {
                     비밀번호를 잃어버리셨나요?
                   </a>
                 </div>
-              </div>
+              </div> */}
 
               <div>
                 <button

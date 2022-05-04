@@ -18,6 +18,7 @@ model User{
   userType      UserType       @default(USER)
   payments      Payment[]
   headOfficeId  String?
+  firebaseId    String?
   headOffice    HeadOffice?    @relation(fields: [headOfficeId], references: [id])
   branchOfficeId  String?
   branchOffice    BranchOffice?    @relation(fields: [branchOfficeId], references: [id])
