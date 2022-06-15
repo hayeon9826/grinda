@@ -32,3 +32,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+### Todo 
+- [ ] 로그아웃 기능
+- [ ] 헤더, 푸터 레이아웃 적용
+- [ ] 메인페이지 레이아웃 적용 (grid 형태로 템플릿 고르기)
+- [ ] 모델링 (템플릿을 복제할 수 있도록)
+- [ ] 다크모드 구현
+- [ ] 참고 템플릿 정하기
+
+### Completed
