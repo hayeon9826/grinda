@@ -1,5 +1,5 @@
-import MainPage from "@components/mainPage";
-import LoginPage from "@components/loginPage";
+import MainPage from "@components/MainPage";
+import LoginPage from "@components/LoginPage";
 import { getCurrentUser } from "@lib/frontend";
 
 const Home = () => {
