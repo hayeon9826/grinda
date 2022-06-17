@@ -21,11 +21,17 @@ const LoginPage = () => {
         <>
             <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8 mt-12">
                 <div className="sm:mx-auto sm:w-full sm:max-w-md">
-                    <Image
-                        src="/images/grinda_logo_primary.png"
-                        alt="Workflow"
-                        layout="fill"
-                    />
+                    <div className="mx-auto">
+                        <div className="text-center w-full h-full object-center object-cover lg:w-full lg:h-full relative">
+                            <Image
+                                src="/images/grinda_logo_primary.png"
+                                alt="Grinda logo"
+                                width="100"
+                                height="38"
+                                className="w-full margin-auto"
+                            />
+                        </div>
+                    </div>
                     <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
                         로그인
                     </h2>
