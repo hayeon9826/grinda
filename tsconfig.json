@@ -24,9 +24,16 @@
       "@components/*": ["components/*"],
       "@src": ["src"],
       "@locales": ["lib/locales"],
-      "@src/*": ["src/*"]
+      "@src/*": ["src/*"],
+      "@utils/*": ["utils/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "utils/Modal.jsx",
+    "utils/Transition.jsx"
+  ],
   "exclude": ["node_modules"]
 }

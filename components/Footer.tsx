@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="p-4 max-w-7xl mx-auto bg-white sm:p-6">
-      <div className="md:flex md:justify-between">
+    <footer className="p-4 max-w-7xl mx-auto bg-white sm:p-6 my-12">
+      <div className="md:flex md:justify-between py-12 border-t">
         <div className="mb-6 md:mb-0">
           <a href="https://grinda.vercel.app" className="flex items-center">
             <span className="text-primary-500 self-center text-2xl font-semibold whitespace-nowrap">

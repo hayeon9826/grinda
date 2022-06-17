@@ -55,7 +55,12 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ### Template Reference
 
 - 소개 페이지 다자인 참고 사이트: [당근마켓](https://team.daangn.com/), [토스](https://toss.im/), [쏘카](https://www.socar.kr/), [애플](https://www.apple.com/kr/)
-- 서비스 디자인 참고 사이트: [마리트](https://www.myrealtrip.com/), [컬리](https://www.kurly.com/), [오늘의집](https://ohou.se/),[에어비앤비](https://www.airbnb.co.kr/), [리디](https://ridibooks.com/)
-- 서비스 참고 사이트: imweb, shopify, sixshop
-- 웹 전문 사이트: 10page
+- 서비스 디자인 참고 사이트: [마리트](https://www.myrealtrip.com/), [컬리](https://www.kurly.com/), [오늘의집](https://ohou.se/),[에어비앤비](https://www.airbnb.co.kr/), [리디](https://ridibooks.com/), [클래스 101](https://class101.net/)
+- 디자인 시스템 글 모음: [디자인시스템, 스타일가이드 사례와 모음 (국내, 해외)](https://spacebar310.tistory.com/86)
 - 쏘카 디자인 시스템: [https://tech.socarcorp.kr/design/2020/06/23/socar-design-system-01.html](https://tech.socarcorp.kr/design/2020/06/23/socar-design-system-01.html)
+- 해외 사이트 디자인 시스템: [https://www.designsystemsforfigma.com/](https://www.designsystemsforfigma.com/)
+- 구글 Material 디자인 시스템: [Google Material Design](https://material.io/design)
+- 애플 디자인 시스템: [Apple Design System](https://developer.apple.com/design/human-interface-guidelines/guidelines/overview/)
+- 토스 디자인 시스템: [toss, design, system](https://www.notion.so/toss-design-system-959822692bec4f879450e361c623cf2a)
+- 스포카 디자인 시스템: [Spoqa Design System](https://bi.spoqa.com/)
+- 아틀라시안 디자인 시스템: [Atlassian Design System](https://atlassian.design/)
