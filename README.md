@@ -35,11 +35,14 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ### Todo
 
+- [ ] toast 라이브러리 통일
+- [ ] 공지사항 페이지
 - [ ] 메인페이지 레이아웃 적용 (grid 형태로 템플릿 고르기)
 - [ ] 모델링 (템플릿을 복제할 수 있도록)
 - [ ] 상세페이지 테마 구현
 - [ ] 커스텀 color-picker 구현
 - [ ] 다크모드 구현
+- [ ] vercel 자동배포 기능
 
 ### In Progress
 
