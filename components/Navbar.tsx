@@ -16,18 +16,18 @@ const Navbar: React.FC = () => {
   const { currentUser, isFetching, refetch } = getCurrentUser();
 
   const navigation = [
+    { name: "템플릿", href: "/", current: router.pathname === "/" },
     {
       name: "서비스 소개",
       href: "/about",
       current: router.pathname === "/about",
     },
-    { name: "템플릿", href: "/", current: router.pathname === "/" },
     {
       name: "공지사항",
       href: "#",
       current: router.pathname === "/notices",
     },
-    { name: "FAQ", href: "#", current: router.pathname === "/faqs" },
+    { name: "FAQ", href: "/faqs", current: router.pathname === "/faqs" },
   ];
 
   const handleAlert = () => {

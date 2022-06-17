@@ -4,6 +4,7 @@ import FeaturesHome from "@components/Features";
 import FeaturesBlocks from "@components/FeaturesBlocks";
 import Testimonials from "@components/Testimonials";
 import Newsletter from "@components/Newsletter";
+import PricingSection from "@components/PricingSection";
 
 const AboutPage: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const AboutPage: React.FC = () => {
       <FeaturesHome />
       <FeaturesBlocks />
       <Testimonials />
+      <PricingSection />
       <Newsletter />
     </div>
   );
