@@ -5,7 +5,7 @@ import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { toast } from "react-toastify";
 import { app } from "@lib/firebase";
-import { deleteUser, getAuth, signOut } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
 import { getCurrentUser } from "@lib/frontend";
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
     },
     {
       name: "공지사항",
-      href: "#",
+      href: "/notices",
       current: router.pathname === "/notices",
     },
     { name: "FAQ", href: "/faqs", current: router.pathname === "/faqs" },
@@ -48,7 +48,7 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <Disclosure as="nav" className="bg-white">
+      <Disclosure as="nav" className="bg-white sticky top-0 z-50 shadow-sm">
         {({ open }) => (
           <>
             <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -83,8 +83,8 @@ const Navbar: React.FC = () => {
                             }
                             className={classNames(
                               item.current
-                                ? "text-primary-500 font-semibold underline"
-                                : "text-gray-300 hover:text-primary-500",
+                                ? "text-primary-500 font-semibold"
+                                : "text-gray-300 hover:text-primary-300",
                               "px-3 py-2 rounded-md text-sm font-medium cursor-pointer"
                             )}
                             aria-current={item.current ? "page" : undefined}

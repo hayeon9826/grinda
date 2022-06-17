@@ -2,7 +2,7 @@ import Link from "next/link";
 import axios from "axios";
 import Image from "next/image";
 import { app } from "@lib/firebase";
-import toast from "react-simple-toasts";
+import { toast } from "react-toastify";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
@@ -60,11 +60,15 @@ const RegisterPage = () => {
                     name: data.name,
                   });
 
-                  toast("가입을 완료하였습니다.");
+                  toast.success("가입을 완료하였습니다.", {
+                    autoClose: 1000,
+                  });
                   router.replace("/");
                 } catch (e) {
                   console.log(e);
-                  toast("다시 시도해주세요.");
+                  toast.error("다시 시도해주세요.", {
+                    autoClose: 1000,
+                  });
                 }
               })}
             >

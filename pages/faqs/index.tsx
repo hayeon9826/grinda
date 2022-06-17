@@ -35,44 +35,39 @@ const FaqPage: React.FC = () => {
 
   return (
     <>
-      <section className="py-30 pb-40 xl:py-3 bg-gray-50">
+      <section className="py-30 pb-40 xl:py-3">
         <div className="container px-4 mx-auto">
-          <div className="mb-20 pt-20 text-center">
-            <span className="text-lg font-bold text-primary-500">
-              하루만에 나만의 사이트를, 그린다
-            </span>
-            <h2 className="mt-8 text-5xl font-bold font-heading">
-              자주 묻는 질문
-            </h2>
+          <div className="mb-20 pt-10 text-center">
+            <h2 className="mt-8 text-4xl font-medium">자주 묻는 질문</h2>
           </div>
-          <div className="max-w-4xl mx-auto  pb-40">
+          <div className="max-w-4xl mx-auto pb-40">
             <ul>
               {faqs && faqs.length ? (
                 faqs.map((faq) => (
                   <li
-                    className="mb-4 px-4 lg:px-12 py-6 bg-white rounded-2xl shadow-sm"
+                    className="mb-4 px-4 lg:px-12 py-4 bg-white border-b"
                     key={faq.id}
                   >
                     <button className="flex w-full text-left">
                       <div className="w-auto mr-8">
-                        <span className="flex items-center justify-center w-10 h-10 text-md font-semibold bg-gray-50 rounded-full">
+                        <span className="flex items-center justify-center w-10 h-10 text-md text-gray-400">
                           {faq.position}
                         </span>
                       </div>
-                      <div className="w-full mt-2">
+                      <div className="w-full">
                         <div className="flex items-center justify-between">
-                          <h3 className="text-lg font-semibold">{faq.title}</h3>
+                          <div className="text-lg font-normal">{faq.title}</div>
                           <span className="ml-4">
                             {showId === faq.position ? (
                               <ChevronUpIcon
-                                className="w-5 h-5 text-primary-600"
+                                className="w-5 h-5 text-primary-500"
                                 onClick={() => {
                                   setShowId(0);
                                 }}
                               />
                             ) : (
                               <ChevronDownIcon
-                                className="w-5 h-5 text-primary-600"
+                                className="w-5 h-5 text-primary-500"
                                 onClick={() => {
                                   setShowId(faq.position);
                                 }}

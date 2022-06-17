@@ -3236,11 +3236,6 @@ react-query@^3.27.0:
     broadcast-channel "^3.4.1"
     match-sorter "^6.0.2"
 
-react-simple-toasts@^2.2.3:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/react-simple-toasts/-/react-simple-toasts-2.2.3.tgz#da4e7b24ee23857220216e9165e9f0584ae787e2"
-  integrity sha512-z6FX3CC0bSQ9eEDN8c/R8yb+eUyJwa8osb6vDMN1JS5fOl5+7fI7Eu/aN0Rxr7+RtoSgNfwFuVaz9AAju1JqYw==
-
 react-toastify@^9.0.4:
   version "9.0.4"
   resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-9.0.4.tgz#016d0f3dae2f6e9c01eb36bd1d2c31b0a6de4434"

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { app } from "@lib/firebase";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import toast from "react-simple-toasts";
+import { toast } from "react-toastify";
 import { authErrorMessage } from "@lib/frontend";
 import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
@@ -50,10 +50,14 @@ const LoginPage = () => {
                     data.password
                   );
                   router.replace("/");
-                  toast("로그인에 성공했습니다");
+                  toast.success("로그인에 성공했습니다", {
+                    autoClose: 1000,
+                  });
                 } catch (error) {
                   console.log(error);
-                  toast(t(authErrorMessage(error?.code)));
+                  toast.error(t(authErrorMessage(error?.code)), {
+                    autoClose: 1000,
+                  });
                 }
               })}
             >
