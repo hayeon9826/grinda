@@ -27,15 +27,18 @@ const LoginPage = () => {
         <body class="h-full">
         ```
       */}
-            <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8 mt-12">
+            <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8 mt-12 mb-32">
                 <div className="sm:mx-auto sm:w-full sm:max-w-md mx-auto">
                     <div className="mx-auto">
-                        <Image
-                            src="/semu_logo_bg.png"
-                            alt="Workflow"
-                            width={50}
-                            height={50}
-                        />
+                        <div className="text-center w-full h-full object-center object-cover lg:w-full lg:h-full relative">
+                            <Image
+                                src="/images/grinda_logo_primary.png"
+                                alt="Grinda logo"
+                                width="100"
+                                height="38"
+                                className="w-full margin-auto"
+                            />
+                        </div>
                     </div>
                     <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
                         로그인
@@ -80,7 +83,7 @@ const LoginPage = () => {
                                         })}
                                         placeholder="이메일을 입력해주세요"
                                         required
-                                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                                     />
                                     <p className="error mb-4">
                                         {errors.email?.message}
@@ -104,7 +107,7 @@ const LoginPage = () => {
                                             required: "필수 입력 사항입니다",
                                         })}
                                         required
-                                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                                     />
                                     <p className="error mb-4">
                                         {errors.password?.message}
@@ -118,7 +121,7 @@ const LoginPage = () => {
                                         id="remember-me"
                                         name="remember-me"
                                         type="checkbox"
-                                        className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                                        className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                                     />
                                     <label
                                         htmlFor="remember-me"
@@ -131,7 +134,7 @@ const LoginPage = () => {
                                 <div className="text-sm">
                                     <a
                                         href="#"
-                                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                                        className="font-medium text-primary-600 hover:text-primary-500"
                                     >
                                         비밀번호를 잃어버리셨나요?
                                     </a>
@@ -141,7 +144,7 @@ const LoginPage = () => {
                             <div>
                                 <button
                                     type="submit"
-                                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
                                 >
                                     로그인
                                 </button>
