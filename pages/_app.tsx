@@ -11,33 +11,34 @@ import { initReactI18next } from "react-i18next";
 import Layout from "../layout";
 import Meta from "layout/Meta";
 
-i18n.use(initReactI18next) // passes i18n down to react-i18next
-    .init({
-        resources: { ko },
-        lng: "ko",
-        fallbackLng: "ko",
-        interpolation: {
-            escapeValue: false,
-        },
-    });
+i18n
+  .use(initReactI18next) // passes i18n down to react-i18next
+  .init({
+    resources: { ko },
+    lng: "ko",
+    fallbackLng: "ko",
+    interpolation: {
+      escapeValue: false,
+    },
+  });
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
-    const [queryClient] = React.useState(() => new QueryClient());
-    const router = useRouter();
-    const { deviceToken } = router.query;
+  const [queryClient] = React.useState(() => new QueryClient());
+  const router = useRouter();
+  const { deviceToken } = router.query;
 
-    return (
-        <QueryClientProvider client={queryClient}>
-            <Hydrate state={pageProps.dehydratedState}>
-                <Layout>
-                    <Meta />
-                    <AuthProvider deviceToken={deviceToken}>
-                        <Component {...pageProps} />
-                    </AuthProvider>
-                </Layout>
-            </Hydrate>
-        </QueryClientProvider>
-    );
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        <Layout>
+          <Meta />
+          <AuthProvider deviceToken={deviceToken}>
+            <Component {...pageProps} />
+          </AuthProvider>
+        </Layout>
+      </Hydrate>
+    </QueryClientProvider>
+  );
 };
 
 export default MyApp;
