@@ -12,21 +12,20 @@ import { initReactI18next } from "react-i18next";
 import Layout from '../layout'
 import Meta from "layout/Meta";
 
-i18n
-  .use(initReactI18next) // passes i18n down to react-i18next
-  .init({
-    resources: { ko },
-    lng: "ko",
-    fallbackLng: "ko",
-    interpolation: {
-      escapeValue: false,
-    },
-  });
+i18n.use(initReactI18next) // passes i18n down to react-i18next
+    .init({
+        resources: { ko },
+        lng: "ko",
+        fallbackLng: "ko",
+        interpolation: {
+            escapeValue: false,
+        },
+    });
 
-function MyApp({ Component, pageProps }: AppProps) {
-  const [queryClient] = React.useState(() => new QueryClient());
-  const router = useRouter();
-  const { deviceToken } = router.query;
+const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
+    const [queryClient] = React.useState(() => new QueryClient());
+    const router = useRouter();
+    const { deviceToken } = router.query;
 
   return (
     <QueryClientProvider client={queryClient}>
