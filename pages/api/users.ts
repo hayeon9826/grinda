@@ -1,6 +1,5 @@
 import prisma from "@lib/prisma";
 import { getCurrentUser } from "@lib/backend";
-import { adminApp } from "@lib/admin";
 
 export default async function handler(req, res) {
   const { id, userId } = req.query;

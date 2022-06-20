@@ -25,7 +25,8 @@
       "@src": ["src"],
       "@locales": ["lib/locales"],
       "@src/*": ["src/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@interface": ["interface/index"]
     }
   },
   "include": [
