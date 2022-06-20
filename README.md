@@ -35,13 +35,12 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ### Todo
 
+- [ ] .env 파일 삭제 및 레포지터리 public 변경
 - [ ] 메인페이지 레이아웃 적용 (grid 형태로 템플릿 고르기)
 - [ ] 재사용 컴포넌트 분리 (최대한 작게)
 - [ ] 템플릿 상세페이지 테마 구현
-- [ ] 공지사항 pagination 구현
-- [ ] 공지사항 상세페이지 구현
 - [ ] 커스텀 color-picker 구현
-- [ ] vercel 자동배포 기능
+- [ ] vercel 자동배포 기능 (심화)
 
 ### In Progress
 
@@ -56,6 +55,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - [x] 로그아웃 기능
 - [x] toast 라이브러리 통일
 - [x] 공지사항 리스트 레이아웃
+- [x] 공지사항 pagination 구현
+- [x] 공지사항 상세페이지 구현
 
 ### Template Reference
 
