@@ -36,6 +36,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ### Todo
 
 - [ ] 메인페이지 레이아웃 적용 (grid 형태로 템플릿 고르기)
+- [ ] 재사용 컴포넌트 분리 (최대한 작게)
 - [ ] 템플릿 상세페이지 테마 구현
 - [ ] 공지사항 pagination 구현
 - [ ] 공지사항 상세페이지 구현
