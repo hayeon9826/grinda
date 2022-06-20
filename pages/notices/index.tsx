@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const NoticePage: React.FC = () => {
   const notices = [
@@ -14,44 +15,37 @@ const NoticePage: React.FC = () => {
     },
     {
       id: 3,
-      title:
-        "Praesent justo risus, pellentesque in posuere sed, tristique nec libero?",
+      title: "Praesent justo risus, pellentesque in posuere sed, tristique nec libero?",
       date: "2022. 06. 10",
     },
     {
       id: 4,
-      title:
-        "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. ",
+      title: "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. ",
       date: "2022. 06. 12",
     },
     {
       id: 5,
-      title:
-        "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. ",
+      title: "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. ",
       date: "2022. 06. 12",
     },
     {
       id: 6,
-      title:
-        "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. ",
+      title: "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. ",
       date: "2022. 06. 12",
     },
     {
       id: 7,
-      title:
-        "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. ",
+      title: "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. ",
       date: "2022. 06. 12",
     },
     {
       id: 8,
-      title:
-        "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. ",
+      title: "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. ",
       date: "2022. 06. 12",
     },
     {
       id: 9,
-      title:
-        "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. ",
+      title: "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. ",
       date: "2022. 06. 12",
     },
   ];
@@ -61,22 +55,21 @@ const NoticePage: React.FC = () => {
       <section className="py-30 pb-40 xl:py-3">
         <div className="container px-4 mx-auto">
           <div className="mb-20 pt-10 text-center">
-            <h2 className="mt-8 text-4xl font-semibold">공지사항</h2>
+            <h2 className="mt-8 text-4xl font-bold">공지사항</h2>
           </div>
           <div className="max-w-4xl mx-auto pb-40">
             <ul>
               {notices && notices.length ? (
                 notices.map((faq) => (
-                  <li
-                    className="mb-4 px-4 lg:px-12 pb-4 bg-white border-b"
-                    key={faq.id}
-                  >
+                  <li className="mb-4 px-4 lg:px-12 pb-6 pt-2 bg-white border-b cursor-pointer" key={faq.id}>
                     <button className="flex w-full text-left">
                       <div className="w-full">
-                        <div>
-                          <div className="text-md font-medium">{faq.title}</div>
-                          <div className="text-sm font-thin">{faq.date}</div>
-                        </div>
+                        <Link href={`/notices/0`} passHref>
+                          <div>
+                            <div className="text-md font-semibold text-gray-700">{faq.title}</div>
+                            <div className="text-sm font-normal text-gray-500">{faq.date}</div>
+                          </div>
+                        </Link>
                       </div>
                     </button>
                   </li>
@@ -90,39 +83,24 @@ const NoticePage: React.FC = () => {
             {/* paginaion */}
             <div className="bg-white px-4 flex items-center justify-center sm:px-6 mt-16">
               <div className="flex-1 flex justify-center sm:hidden">
-                <a
-                  href="#"
-                  className="relative inline-flex items-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
-                >
+                <a href="#" className="relative inline-flex items-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
                   {" "}
                   Previous{" "}
                 </a>
-                <a
-                  href="#"
-                  className="ml-3 relative inline-flex items-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
-                >
+                <a href="#" className="ml-3 relative inline-flex items-center px-4 py-2 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
                   {" "}
                   Next{" "}
                 </a>
               </div>
               <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-center">
                 <div>
-                  <nav
-                    className="relative z-0 inline-flex rounded-md -space-x-px"
-                    aria-label="Pagination"
-                  >
+                  <nav className="relative z-0 inline-flex rounded-md -space-x-px" aria-label="Pagination">
                     <a
                       href="#"
                       className="relative inline-flex items-center px-2 py-2 rounded-l-md bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                     >
                       <span className="sr-only">Previous</span>
-                      <svg
-                        className="h-5 w-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        aria-hidden="true"
-                      >
+                      <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                         <path
                           fillRule="evenodd"
                           d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
@@ -138,42 +116,24 @@ const NoticePage: React.FC = () => {
                       {" "}
                       1{" "}
                     </a>
-                    <a
-                      href="#"
-                      className="bg-white text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 text-sm font-medium"
-                    >
+                    <a href="#" className="bg-white text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 text-sm font-medium">
                       {" "}
                       2{" "}
                     </a>
-                    <a
-                      href="#"
-                      className="bg-white text-gray-500 hover:bg-gray-50 hidden md:inline-flex relative items-center px-4 py-2 text-sm font-medium"
-                    >
+                    <a href="#" className="bg-white text-gray-500 hover:bg-gray-50 hidden md:inline-flex relative items-center px-4 py-2 text-sm font-medium">
                       {" "}
                       3{" "}
                     </a>
-                    <span className="relative inline-flex items-center px-4 py-2 bg-white text-sm font-medium text-gray-700">
-                      {" "}
-                      ...{" "}
-                    </span>
-                    <a
-                      href="#"
-                      className="bg-white text-gray-500 hover:bg-gray-50 hidden md:inline-flex relative items-center px-4 py-2 text-sm font-medium"
-                    >
+                    <span className="relative inline-flex items-center px-4 py-2 bg-white text-sm font-medium text-gray-700"> ... </span>
+                    <a href="#" className="bg-white text-gray-500 hover:bg-gray-50 hidden md:inline-flex relative items-center px-4 py-2 text-sm font-medium">
                       {" "}
                       8{" "}
                     </a>
-                    <a
-                      href="#"
-                      className="bg-white text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 text-sm font-medium"
-                    >
+                    <a href="#" className="bg-white text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 text-sm font-medium">
                       {" "}
                       9{" "}
                     </a>
-                    <a
-                      href="#"
-                      className="bg-white text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 text-sm font-medium"
-                    >
+                    <a href="#" className="bg-white text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 text-sm font-medium">
                       {" "}
                       10{" "}
                     </a>
@@ -182,13 +142,7 @@ const NoticePage: React.FC = () => {
                       className="relative inline-flex items-center px-2 py-2 rounded-r-md bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                     >
                       <span className="sr-only">Next</span>
-                      <svg
-                        className="h-5 w-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        aria-hidden="true"
-                      >
+                      <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                         <path
                           fillRule="evenodd"
                           d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"

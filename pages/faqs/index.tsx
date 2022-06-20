@@ -38,7 +38,7 @@ const FaqPage: React.FC = () => {
       <section className="py-30 pb-40 xl:py-3">
         <div className="container px-4 mx-auto">
           <div className="mb-20 pt-10 text-center">
-            <h2 className="mt-8 text-4xl font-medium">자주 묻는 질문</h2>
+            <h2 className="mt-8 text-4xl font-bold">자주 묻는 질문</h2>
           </div>
           <div className="max-w-4xl mx-auto pb-40">
             <ul>
