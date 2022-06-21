@@ -141,7 +141,7 @@ const LoginPage = () => {
                 </button>
               </div>
               <div>
-                <Link href="/users/register">
+                <Link href="/users/register" passHref>
                   <button className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300">
                     회원가입
                   </button>

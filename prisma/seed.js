@@ -6,15 +6,12 @@ const faqCategories = ["general", "template", "operation", "etc"];
 
 async function createFaqs() {
   [...Array(20)].map(async (x, i) => {
-    console.log(faker);
     const faqData = {
       category: faqCategories[Math.floor(Math.random() * faqCategories.length)],
       question: faker.lorem.sentence(),
       answer: faker.lorem.sentences(3),
     };
     const result = await prisma.faq.create({ data: faqData });
-    console.log(result, "@@faq created");
-    console.log(result);
   });
 }
 
@@ -26,7 +23,6 @@ async function createNotices() {
         body: faker.lorem.sentences(3),
       },
     });
-    console.log(notice, "@@notice created");
   });
 }
 

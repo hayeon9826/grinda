@@ -3,7 +3,7 @@ import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/outline";
 import { Faq } from "@interface";
 import axios from "axios";
 import { useQuery } from "react-query";
-import { categories } from "./categories";
+import { categories } from "@utils/categories";
 import SkeletonList from "@components/SkeletonList";
 
 const FaqPage: React.FC = () => {
@@ -71,7 +71,7 @@ const FaqPage: React.FC = () => {
                               <ChevronUpIcon
                                 className="w-5 h-5 text-primary-500"
                                 onClick={() => {
-                                  setShowId(0);
+                                  setShowId("");
                                 }}
                               />
                             ) : (
