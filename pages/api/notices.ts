@@ -1,6 +1,10 @@
 import prisma from "@lib/prisma";
+import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method === "POST") {
   } else {
     const { id, q, page, limit = 10 } = req.query;
@@ -14,8 +18,8 @@ export default async function handler(req, res) {
             }
           : {}),
       },
-      skip: page ? parseInt(page) * parseInt(limit) : 0,
-      take: parseInt(limit),
+      skip: page ? Number(page) * Number(limit) : 0,
+      take: Number(limit),
     });
 
     const count = await prisma.notice.count({
@@ -32,10 +36,10 @@ export default async function handler(req, res) {
       id
         ? objects[0]
         : {
-            page: parseInt(page),
+            page: Number(page),
             objects,
             total_count: count,
-            total_pages: Math.ceil(count / limit),
+            total_pages: Math.ceil(count / Number(limit)),
           }
     );
   }

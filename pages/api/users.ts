@@ -1,8 +1,12 @@
 import prisma from "@lib/prisma";
 import { getCurrentUser } from "@lib/backend";
+import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(req, res) {
-  const { id, userId } = req.query;
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  const { id } = req.query;
   const currentUser = await getCurrentUser(req);
 
   // GET 요청

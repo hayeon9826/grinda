@@ -37,7 +37,7 @@ function Newsletter() {
                         aria-label="Your email…"
                       />
                       <a
-                        className="leading-[28px] text-white bg-gradient-to-br from-purple-600 to-primary-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-primary-300 dark:focus:ring-primary-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"
+                        className="leading-[28px] text-white bg-gradient-to-br bg-primary-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-primary-300 dark:focus:ring-primary-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"
                         href="#0"
                       >
                         Subscribe

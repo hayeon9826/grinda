@@ -20,7 +20,7 @@ function HeroHome() {
                 className="lg:text-6xl text-5xl md:text-8xl font-extrabold leading-tighter tracking-tighter mb-4"
                 data-aos="zoom-y-out"
               >
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-cyan-400">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-blue-300">
                   스타트업
                 </span>
                 을 위한 랜딩 페이지
@@ -44,7 +44,7 @@ function HeroHome() {
                     </button>
                   </div>
                   <div className="m-2">
-                    <button className="text-white bg-gradient-to-r bg-cyan-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                    <button className="text-white bg-gradient-to-r bg-blue-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                       더 알아보기
                     </button>
                   </div>
