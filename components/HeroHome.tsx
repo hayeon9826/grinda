@@ -9,7 +9,7 @@ function HeroHome() {
 
   return (
     <section className="relative">
-      <BackgroundIllustration />
+      {/* <BackgroundIllustration /> */}
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="pb-12 md:pt-40 md:pb-20">
@@ -17,13 +17,13 @@ function HeroHome() {
           <FadeInSection>
             <div className="text-center pb-12 md:pb-16">
               <h1
-                className="lg:text-8xl text-6xl md:text-8xl font-extrabold leading-tighter tracking-tighter mb-4"
+                className="lg:text-6xl text-5xl md:text-8xl font-extrabold leading-tighter tracking-tighter mb-4"
                 data-aos="zoom-y-out"
               >
-                Make your website{" "}
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-teal-400">
-                  wonderful
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-cyan-400">
+                  스타트업
                 </span>
+                을 위한 랜딩 페이지
               </h1>
               <div className="max-w-3xl mx-auto">
                 <p
@@ -31,8 +31,7 @@ function HeroHome() {
                   data-aos="zoom-y-out"
                   data-aos-delay="150"
                 >
-                  Our landing page template works on all devices, so you only
-                  have to set it up once, and get beautiful results forever.
+                  10분만에 반응형 랜딩 페이지를 만들어보세요.
                 </p>
                 <div
                   className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center"
@@ -40,13 +39,13 @@ function HeroHome() {
                   data-aos-delay="300"
                 >
                   <div className="m-2">
-                    <button className="text-white bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-primary-300 dark:focus:ring-primary-800 shadow-lg shadow-primary-500/50 dark:shadow-lg dark:shadow-primary-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                      Start free trial
+                    <button className="text-white bg-gradient-to-r bg-primary-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                      무료로 시작하기
                     </button>
                   </div>
                   <div className="m-2">
-                    <button className="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                      Learn more
+                    <button className="text-white bg-gradient-to-r bg-cyan-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                      더 알아보기
                     </button>
                   </div>
                 </div>

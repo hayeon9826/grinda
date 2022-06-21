@@ -1,49 +1,56 @@
 import React, { useState } from "react";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/outline";
+import { Faq } from "@interface";
+import axios from "axios";
+import { useQuery } from "react-query";
+import { categories } from "./categories";
+import SkeletonList from "@components/SkeletonList";
 
 const FaqPage: React.FC = () => {
-  const [showId, setShowId] = useState(0);
+  const [showId, setShowId] = useState("");
+  const [category, setCategory] = useState("general");
 
-  const faqs = [
-    {
-      id: 1,
-      position: 1,
-      title: "Lorem ipsum dolor sit amet",
-      body: " consectetur adipiscing elit. Phasellus tincidunt, velit eu sagittis feugiat, massa ex interdum elit, quis accumsan purus magna eget sem. Curabitur vitae nibh diam. Aenean blandit tempor nulla id rhoncus. Proin ut purus lacinia mauris convallis auctor. Pellentesque ultrices quam scelerisque urna finibus tincidunt. Nunc bibendum nisi felis, at venenatis quam pulvinar ultrices. Nullam eu augue a lectus porta egestas.",
-    },
-    {
-      id: 2,
-      position: 2,
-      title: "Duis eget tortor nec magna ultricies pretium.",
-      body: "Fusce non tempor neque. Etiam a dapibus nisi, at interdum elit. In molestie urna ex, non convallis arcu lobortis sed. Nullam eget convallis dui, sit amet commodo felis. Phasellus nec est nisl. Sed sed egestas tortor. Nam imperdiet sem in ante blandit posuere. Integer viverra enim ac maximus sodales.",
-    },
-    {
-      id: 3,
-      position: 3,
-      title:
-        "Praesent justo risus, pellentesque in posuere sed, tristique nec libero?",
-      body: " Aenean quis vestibulum massa. Nulla scelerisque ipsum eu lacus porta fringilla. Maecenas congue sem quis sagittis dignissim. Morbi finibus mi nisl, in dignissim felis feugiat eget. In luctus dolor nec sollicitudin blandit. In et orci finibus, sodales turpis eu, lobortis nulla. ",
-    },
-    {
-      id: 4,
-      position: 4,
-      title:
-        "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. ",
-      body: "Sed ac hendrerit enim, at gravida metus. Quisque ac massa erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. ",
-    },
-  ];
+  const { data: faqs, isFetching } = useQuery(
+    ["faqs", { category }],
+    async () => {
+      const result = await axios(`/api/faqs`, {
+        params: {
+          category: category,
+        },
+      });
+      return result;
+    }
+  );
 
   return (
     <>
       <section className="py-30 pb-40 xl:py-3">
         <div className="container px-4 mx-auto">
-          <div className="mb-20 pt-10 text-center">
+          <div className="mb-10 pt-10 text-center">
             <h2 className="mt-8 text-4xl font-bold">자주 묻는 질문</h2>
           </div>
           <div className="max-w-4xl mx-auto pb-40">
+            <div className="px-4 mb-20 lg:px-12 text-center">
+              {categories?.length &&
+                categories?.map((data, index) => (
+                  <button
+                    onClick={() => setCategory(data?.name)}
+                    key={index}
+                    type="button"
+                    className={`font-normal rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 ${
+                      category === data?.name
+                        ? "bg-primary-500 hover:bg-primary-600 text-white "
+                        : "bg-slate-200 hover:bg-slate-300 text-gray-700"
+                    }`}
+                  >
+                    {data.title}
+                  </button>
+                ))}
+            </div>
+            {isFetching && <SkeletonList />}
             <ul>
-              {faqs && faqs.length ? (
-                faqs.map((faq) => (
+              {faqs && faqs?.data?.objects?.length ? (
+                faqs?.data?.objects?.map((faq: Faq, index) => (
                   <li
                     className="mb-4 px-4 lg:px-12 py-4 bg-white border-b"
                     key={faq.id}
@@ -51,14 +58,16 @@ const FaqPage: React.FC = () => {
                     <button className="flex w-full text-left">
                       <div className="w-auto mr-8">
                         <span className="flex items-center justify-center w-10 h-10 text-md text-gray-400">
-                          {faq.position}
+                          {index + 1}
                         </span>
                       </div>
                       <div className="w-full">
                         <div className="flex items-center justify-between">
-                          <div className="text-lg font-normal">{faq.title}</div>
+                          <div className="text-lg font-normal">
+                            {faq.question}
+                          </div>
                           <span className="ml-4">
-                            {showId === faq.position ? (
+                            {showId === faq.id ? (
                               <ChevronUpIcon
                                 className="w-5 h-5 text-primary-500"
                                 onClick={() => {
@@ -69,7 +78,7 @@ const FaqPage: React.FC = () => {
                               <ChevronDownIcon
                                 className="w-5 h-5 text-primary-500"
                                 onClick={() => {
-                                  setShowId(faq.position);
+                                  setShowId(faq.id);
                                 }}
                               />
                             )}
@@ -77,10 +86,10 @@ const FaqPage: React.FC = () => {
                         </div>
                         <div
                           className={`mt-6 border-l-2 border-gray-50 pl-4 ${
-                            showId !== faq.position && "hidden"
+                            showId !== faq.id && "hidden"
                           }`}
                         >
-                          <p className="mb-5 text-base">{faq.body}</p>
+                          <p className="mb-5 text-base">{faq.answer}</p>
                         </div>
                       </div>
                     </button>

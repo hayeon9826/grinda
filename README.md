@@ -57,6 +57,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - [x] 공지사항 리스트 레이아웃
 - [x] 공지사항 pagination 구현
 - [x] 공지사항 상세페이지 구현
+- [x] faq 리스트 작업
 
 ### Template Reference
 

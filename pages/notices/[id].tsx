@@ -7,7 +7,6 @@ import dayjs from "dayjs";
 const NoticePage = () => {
   const router = useRouter();
   const { id } = router.query;
-  console.log(id);
 
   const {
     data: notice,

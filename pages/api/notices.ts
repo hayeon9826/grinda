@@ -18,10 +18,6 @@ export default async function handler(req, res) {
       take: parseInt(limit),
     });
 
-    const test = await prisma.notice.findMany({
-      where: { id: id },
-    });
-
     const count = await prisma.notice.count({
       where: {
         ...(q

@@ -9,6 +9,7 @@ import PricingSection from "@components/PricingSection";
 const AboutPage: React.FC = () => {
   return (
     <div className="flex-grow">
+      {/* 변경: https://cruip.com/demos/open-pro/ */}
       <HeroHome />
       <FeaturesHome />
       <FeaturesBlocks />

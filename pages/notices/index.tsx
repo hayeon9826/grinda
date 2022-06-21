@@ -4,12 +4,9 @@ import axios from "axios";
 import { useQuery } from "react-query";
 import { Notice } from "@interface";
 import { useRouter } from "next/router";
+import SkeletonList from "@components/SkeletonList";
 
 const NoticePage: React.FC = () => {
-  const config = {
-    url: "/api/notices",
-  };
-
   const router = useRouter();
   const { page = 0 } = router.query;
 
@@ -27,8 +24,6 @@ const NoticePage: React.FC = () => {
     }
   );
 
-  console.log(notices?.data?.objects);
-
   return (
     <>
       <section className="py-30 pb-40 xl:py-3">
@@ -36,7 +31,9 @@ const NoticePage: React.FC = () => {
           <div className="mb-20 pt-10 text-center">
             <h2 className="mt-8 text-4xl font-bold">공지사항</h2>
           </div>
+
           <div className="max-w-4xl mx-auto pb-40">
+            {isFetching && <SkeletonList />}
             <ul>
               {notices && notices?.data?.objects?.length ? (
                 notices?.data?.objects?.map((notice: Notice) => (
