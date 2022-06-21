@@ -1,46 +1,13 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
 ### Todo
 
-- [ ] .env 파일 삭제 및 레포지터리 public 변경
-- [ ] 메인페이지 레이아웃 적용 (grid 형태로 템플릿 고르기)
+- [ ] 메인페이지 레이아웃 적용 (리서치 및 기획 필요)
 - [ ] 재사용 컴포넌트 분리 (최대한 작게)
-- [ ] 템플릿 상세페이지 테마 구현
-- [ ] 커스텀 color-picker 구현
+- [ ] 템플릿 페이지 컴포넌트 사용자 선택 작업 (위치 및 종류)
+- [ ] 커스텀 color-picker 작업
+- [ ] 템플릿 복제 기능 작업
+- [ ] 마이페이지 기능 작업
 - [ ] vercel 자동배포 기능 (심화)
+- [ ] README 최종 업데이트
 
 ### In Progress
 
@@ -48,6 +15,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ### Completed
 
+- [x] .env 파일 삭제 및 레포지터리 public 변경
 - [x] 헤더, 푸터 레이아웃 적용
 - [x] 로그인, 회원가입
 - [x] 로고 제작
@@ -55,8 +23,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - [x] 로그아웃 기능
 - [x] toast 라이브러리 통일
 - [x] 공지사항 리스트 레이아웃
-- [x] 공지사항 pagination 구현
-- [x] 공지사항 상세페이지 구현
+- [x] 공지사항 pagination 작업
+- [x] 공지사항 상세페이지 작업
 - [x] faq 리스트 작업
 
 ### Template Reference
