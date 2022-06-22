@@ -1,4 +1,4 @@
-import config from "../src/firebase.json";
+import { config } from "../src/firebase-json";
 import admin, { ServiceAccount } from "firebase-admin";
 import { getApp } from "firebase-admin/app";
 import { getStorage } from "firebase-admin/storage";
