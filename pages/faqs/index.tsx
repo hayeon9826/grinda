@@ -47,60 +47,63 @@ const FaqPage: React.FC = () => {
                   </button>
                 ))}
             </div>
-            {isFetching && <SkeletonList />}
-            <ul>
-              {faqs && faqs?.data?.objects?.length ? (
-                faqs?.data?.objects?.map((faq: Faq, index) => (
-                  <li
-                    className="mb-4 px-4 lg:px-12 py-4 bg-white border-b"
-                    key={faq.id}
-                  >
-                    <button className="flex w-full text-left">
-                      <div className="w-auto mr-8">
-                        <span className="flex items-center justify-center w-10 h-10 text-md text-gray-400">
-                          {index + 1}
-                        </span>
-                      </div>
-                      <div className="w-full">
-                        <div className="flex items-center justify-between">
-                          <div className="text-lg font-normal">
-                            {faq.question}
-                          </div>
-                          <span className="ml-4">
-                            {showId === faq.id ? (
-                              <ChevronUpIcon
-                                className="w-5 h-5 text-primary-500"
-                                onClick={() => {
-                                  setShowId("");
-                                }}
-                              />
-                            ) : (
-                              <ChevronDownIcon
-                                className="w-5 h-5 text-primary-500"
-                                onClick={() => {
-                                  setShowId(faq.id);
-                                }}
-                              />
-                            )}
+            {isFetching ? (
+              <SkeletonList />
+            ) : (
+              <ul>
+                {faqs && faqs?.data?.objects?.length ? (
+                  faqs?.data?.objects?.map((faq: Faq, index) => (
+                    <li
+                      className="mb-4 px-4 lg:px-12 py-4 bg-white border-b"
+                      key={faq.id}
+                    >
+                      <button className="flex w-full text-left">
+                        <div className="w-auto mr-8">
+                          <span className="flex items-center justify-center w-10 h-10 text-md text-gray-400">
+                            {index + 1}
                           </span>
                         </div>
-                        <div
-                          className={`mt-6 border-l-2 border-gray-50 pl-4 ${
-                            showId !== faq.id && "hidden"
-                          }`}
-                        >
-                          <p className="mb-5 text-base">{faq.answer}</p>
+                        <div className="w-full">
+                          <div className="flex items-center justify-between">
+                            <div className="text-lg font-normal">
+                              {faq.question}
+                            </div>
+                            <span className="ml-4">
+                              {showId === faq.id ? (
+                                <ChevronUpIcon
+                                  className="w-5 h-5 text-primary-500"
+                                  onClick={() => {
+                                    setShowId("");
+                                  }}
+                                />
+                              ) : (
+                                <ChevronDownIcon
+                                  className="w-5 h-5 text-primary-500"
+                                  onClick={() => {
+                                    setShowId(faq.id);
+                                  }}
+                                />
+                              )}
+                            </span>
+                          </div>
+                          <div
+                            className={`mt-6 border-l-2 border-gray-50 pl-4 ${
+                              showId !== faq.id && "hidden"
+                            }`}
+                          >
+                            <p className="mb-5 text-base">{faq.answer}</p>
+                          </div>
                         </div>
-                      </div>
-                    </button>
-                  </li>
-                ))
-              ) : (
-                <div className="shadow-md col-span-3 w-100 cursor-pointer bg-white rounded-lg relative block p-6">
-                  <div className="no_content">등록된 FAQ가 없습니다.</div>
-                </div>
-              )}
-            </ul>
+                      </button>
+                    </li>
+                  ))
+                ) : (
+                  <div className="shadow-md col-span-3 w-100 cursor-pointer bg-white rounded-lg relative block p-6">
+                    <div className="no_content">등록된 FAQ가 없습니다.</div>
+                  </div>
+                )}
+              </ul>
+            )}
           </div>
         </div>
       </section>

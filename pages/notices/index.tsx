@@ -33,36 +33,42 @@ const NoticePage: React.FC = () => {
           </div>
 
           <div className="max-w-4xl mx-auto pb-40">
-            {isFetching && <SkeletonList />}
-            <ul>
-              {notices && notices?.data?.objects?.length ? (
-                notices?.data?.objects?.map((notice: Notice) => (
-                  <li
-                    className="mb-4 px-4 lg:px-12 pb-6 pt-2 bg-white border-b cursor-pointer"
-                    key={notice.id}
-                  >
-                    <button className="flex w-full text-left">
-                      <div className="w-full">
-                        <Link href={`/notices/${notice?.id}`} passHref>
-                          <div>
-                            <div className="text-md font-semibold text-gray-700">
-                              {notice.title}
+            {isFetching ? (
+              <SkeletonList />
+            ) : (
+              <ul>
+                {notices && notices?.data?.objects?.length ? (
+                  notices?.data?.objects?.map((notice: Notice) => (
+                    <li
+                      className="mb-4 px-4 lg:px-12 pb-6 pt-2 bg-white border-b cursor-pointer"
+                      key={notice.id}
+                    >
+                      <button className="flex w-full text-left">
+                        <div className="w-full">
+                          <Link href={`/notices/${notice?.id}`} passHref>
+                            <div>
+                              <div className="text-md font-semibold text-gray-700">
+                                {notice.title}
+                              </div>
+                              <div className="text-sm font-normal text-gray-500">
+                                {notice.createdAt}
+                              </div>
                             </div>
-                            <div className="text-sm font-normal text-gray-500">
-                              {notice.createdAt}
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                    </button>
-                  </li>
-                ))
-              ) : (
-                <div className="col-span-3 w-100 cursor-pointer bg-white rounded-lg relative block p-6">
-                  <div className="no_content">등록된 공지사항이 없습니다.</div>
-                </div>
-              )}
-            </ul>
+                          </Link>
+                        </div>
+                      </button>
+                    </li>
+                  ))
+                ) : (
+                  <div className="col-span-3 w-100 cursor-pointer bg-white rounded-lg relative block p-6">
+                    <div className="no_content">
+                      등록된 공지사항이 없습니다.
+                    </div>
+                  </div>
+                )}
+              </ul>
+            )}
+
             {/* paginaion */}
             <div className="bg-white px-4 flex items-center justify-center sm:px-6 mt-16">
               <div className=" sm:flex-1 sm:flex sm:items-center sm:justify-center">
