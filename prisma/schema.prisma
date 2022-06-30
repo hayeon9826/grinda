@@ -49,7 +49,7 @@ model Section {
   buttonDivClassNames String?
   buttons             Button[]
 
-  @@index([templateId])
+  @@index([templateId, position])
 }
 
 model Button {

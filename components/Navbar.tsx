@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
     },
     {
       name: "시작하기",
-      href: "#",
+      href: "/templates/new",
       current: router.pathname === "/templates/new",
     },
 
