@@ -4,6 +4,7 @@ import axios from "axios";
 import { useQuery } from "react-query";
 import { Notice } from "@interface";
 import { useRouter } from "next/router";
+import dayjs from "dayjs";
 import SkeletonList from "@components/SkeletonList";
 
 const NoticePage: React.FC = () => {
@@ -51,7 +52,7 @@ const NoticePage: React.FC = () => {
                                 {notice.title}
                               </div>
                               <div className="text-sm font-normal text-gray-500">
-                                {notice.createdAt}
+                                {dayjs(notice?.createdAt).format("YYYY-MM-DD")}
                               </div>
                             </div>
                           </Link>

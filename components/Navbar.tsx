@@ -14,7 +14,6 @@ function classNames(...classes: string[]) {
 const Navbar: React.FC = () => {
   const router = useRouter();
   const { currentUser, isFetching, refetch } = getCurrentUser();
-
   const navigation = [
     { name: "템플릿", href: "/", current: router.pathname === "/" },
     {
@@ -24,7 +23,7 @@ const Navbar: React.FC = () => {
     },
     {
       name: "시작하기",
-      href: "/templates/new",
+      href: `${currentUser ? '/templates/new' : '/users/login'}`,
       current: router.pathname === "/templates/new",
     },
 
@@ -103,7 +102,7 @@ const Navbar: React.FC = () => {
                   </div>
                 </div>
                 <div className="absolute inset-y-0 right-0 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 hidden sm:block">
-                  {currentUser ? (
+                  {currentUser && currentUser?.id ? (
                     <button
                       type="button"
                       onClick={handleLogout}
@@ -112,13 +111,11 @@ const Navbar: React.FC = () => {
                       <span className=" text-white">로그아웃</span>
                     </button>
                   ) : (
-                    <>
-                      <Link href="/users/login" passHref>
-                        <button className="text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-4 focus:ring-primary-200 font-medium rounded-md text-sm px-5 py-2.5 text-center mr-2 ">
-                          <span className=" text-white">로그인</span>
-                        </button>
-                      </Link>
-                    </>
+                    <Link href="/users/login" passHref>
+                      <button className="text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-4 focus:ring-primary-200 font-medium rounded-md text-sm px-5 py-2.5 text-center mr-2 ">
+                        <span className=" text-white">로그인</span>
+                      </button>
+                    </Link>
                   )}
                 </div>
               </div>
