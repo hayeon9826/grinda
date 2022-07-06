@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { Transition, Dialog } from "@headlessui/react";
 import { XIcon } from '@heroicons/react/outline'
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import Image from "next/image";
+import { SlideOverComponents } from '@utils/SlideOverComponents'
 
 const SlideOver = ({ setOpen, open, title }) => {
   return (
@@ -62,13 +63,10 @@ const SlideOver = ({ setOpen, open, title }) => {
                         {/* Replace with your content */}
                         <div className="absolute inset-0 px-4 sm:px-6">
                           <div className="h-full" aria-hidden="true">
-                            {/* nav 1 */}
-                            <img src="/images/components/navbar/nav1.png" className="w-full mb-8 cursor-pointer hover:border-2 border-primary-500" alt="nav1"/>
-                            <img src="/images/components/navbar/nav2.png" className="w-full mb-8 cursor-pointer hover:border-2 border-primary-500" alt="nav2"/>
-                            <img src="/images/components/navbar/nav3.png" className="w-full mb-8 cursor-pointer hover:border-2 border-primary-500" alt="nav3"/>
-                            <img src="/images/components/navbar/nav4.png" className="w-full mb-8 cursor-pointer hover:border-2 border-primary-500" alt="nav4"/>
+                            { SlideOverComponents[title] && SlideOverComponents[title]?.map((component, index) => (
+                              <img key={index} src={component.url} className="w-full mb-8 cursor-pointer hover:border-2 border-primary-500" alt={component.alt}/>
+                            )) }
                           </div>
-                          
                         </div>
                         {/* /End replace */}
                       </div>

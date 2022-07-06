@@ -10,7 +10,6 @@ export const elements = [
 
 export const components = [
   { name: "Navbar", href: "#", current: true },
-  { name: "Header", href: "#", current: false },
   { name: "Banner", href: "#", current: false },
   { name: "Features", href: "#", current: false },
   { name: "Pricing", href: "#", current: false },
