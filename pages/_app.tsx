@@ -11,7 +11,8 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import Layout from "../layout";
 import Meta from "layout/Meta";
-import { wrapper } from '@store/index'
+import { Provider } from 'react-redux';
+import { wrapper, store } from '@store/index'
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -30,16 +31,18 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   const { deviceToken } = router.query;
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        <Layout>
-          <Meta />
-          <AuthProvider deviceToken={deviceToken}>
-            <Component {...pageProps} />
-          </AuthProvider>
-        </Layout>
-      </Hydrate>
-    </QueryClientProvider>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        {/* <Hydrate state={pageProps.dehydratedState}> */}
+          <Layout>
+            <Meta />
+            <AuthProvider deviceToken={deviceToken}>
+              <Component {...pageProps} />
+            </AuthProvider>
+          </Layout>
+        {/* </Hydrate> */}
+      </QueryClientProvider>
+    </Provider>
   );
 };
 
