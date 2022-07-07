@@ -9,12 +9,12 @@ const EditorScreen = () => {
     <>
       <div className="lg:pl-64 flex flex-col">
         <div className="overflow-y-auto">
+          <ErrorAlert />
           <div className="h-screen flex items-center justify-center border-4 border-dotted">
             {sections && sections.length ? sections?.map((section) => (
               section
             )) : <EditorIntro />}
           </div>
-          <ErrorAlert />
         </div>
       </div>
     </>
